@@ -96,6 +96,16 @@ T vector<T>::vecMagnitude()
 }
 
 
+template <class T>
+T vector<T>::vecMagnitude()
+{
+    for( int i = 0 ; i < m_nDims ; ++i)
+        T SquaredMag += m_vectorData[i] * m_vectorData[i];
+    
+    T magnitude = sqrt(SquaredMag);
+    return magnitude;
+}
+
 // Overloading functions
 
 template <class T>

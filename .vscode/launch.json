@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/BMG/Documents/GitHub/QB_LinAlg_Exercises",
-      "program": "c:/Users/BMG/Documents/GitHub/QB_LinAlg_Exercises/build/Debug/outDebug",
+      "cwd": ".",
+      "program": "build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

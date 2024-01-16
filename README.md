@@ -7,7 +7,11 @@ other, more exotic theorems in multilinear settings, the first of which is by in
 
 Changes from QB's features
 ===
+In the Matrix Class:
+- Safety tests
+
 In the Vector Class:
+- Magnitude calculation
 - Reversal operator
 - Projection operator
 - Hadamard Product

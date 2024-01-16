@@ -73,11 +73,5 @@ int main()
     double HadProd = vector<double>::proj(vector1, vector2);
     cout << std:fixed << std:setprecision(3) << HadProd << endl;
 
-
-
-
-
-
-
 }
 
