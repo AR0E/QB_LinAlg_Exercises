@@ -39,7 +39,6 @@ class vector
     // Static functions
     const T dot(const vector<T> &a, const vector<T> &b);
     const T proj(const vector<T> &a, const vector<T> &b);
-    const T reje(const vector<T> &a, const vector<T> &b);
 
     const vector<T> cross(const vector<T> &a, const vector<T> &b); // Disgusting, but there are no bivectors
     const vector<T> hadamard(const vector<T> &a, const vector<T> &b);
@@ -201,39 +200,26 @@ T vector<T>::proj(const vector<T> &a, const vector<T> &b)
     return result;
 }
 
+
 template <class T>
-T vector<T>::reje(const vector<T> &a, const vector<T> &b)
+vector<T> vector()::cross(const vector<T> &a, const vector<T> &b)
 {
     // check matching dimensionality
     if (m_nDims != rhs.m_nDims)
         throw std::invalid_argument("Vector dimensions don't match");
 
-    std::vector<T> resultData;
-    
-    // calculate dot product and store it in dotP
-    T dotP = 0;
-    for (int i = 0 ; i < m_nDims)
-        T dotP += rhs.m_vectorData.at(i) * rhs.m_vectorData.at(i));
-    
-    //compute magnitude of rhs vector 
-    
-    T squaredMagnitudeRHS = 0;
-    for( int i = 0 ; i < m_nDims ; ++i)
-        T squaredMagnitudeRHS += rhs.m_vectorData[i]*rhs.m_vectorData[i];
-    
-    T vecMagnitudeRHS = sqrt(a);
-    T resultData.push_back (dotP/vecMagnitudeRHS);
+    // check if three dimensional
+    if (m_nDims != 3)
+        throw std::invalid_argument("Shabadoo shabadee, this lie algebra only goes to three!");
 
-    //
+    // calculating the cross product
+    std::vector<T> resultData;
+    resultData.push_back( a.m_vectorData(1)*a.m_vectorData(2) - a.m_vectorData(2)*a.m_vectorData(1) );
+    resultData.push_back( a.m_vectorData(1)*a.m_vectorData(0) - a.m_vectorData(0)*a.m_vectorData(1) );
+    resultData.push_back( a.m_vectorData(0)*a.m_vectorData(2) - a.m_vectorData(2)*a.m_vectorData(0) );
 
     vector<T> result(resultData);
     return result;
-}
-
-
-template <class T>
-vector<T> vector()::cross(const vector<T> &a, const vector<T> &b)
-{
 
 }
 
@@ -247,8 +233,10 @@ vector<T> vector()::hadamard(const vector<T> &a, const vector<T> &b)
     std::vector<T> resultData;
 
     for(int i = 0; i < rhs.m_nDims ; ++i)
-    rhs.m_vectorData.at(i) * rhs.m_vectorData.at(i)
+        resultData.push_back(rhs.m_vectorData.at(i) * rhs.m_vectorData.at(i))
 
+    vector<T> result(resultData);
+    return result;
 }
 
 #endif
